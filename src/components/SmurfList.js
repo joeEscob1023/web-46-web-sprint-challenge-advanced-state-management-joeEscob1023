@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { fetchSmurfs } from "../actions";
 
 const SmurfList = (props) => {
+  const smurfs = [];
   const { smurf, isFetching, error } = props;
   console.log(props);
   const isLoading = isFetching;
@@ -20,9 +21,15 @@ const SmurfList = (props) => {
     return <h1>Loading...</h1>;
   }
 
+  console.log(smurf);
+
   return (
     <div className="listContainer">
-      <Smurf smurf={testSmurf} />
+      {smurf}
+      {/* <Smurf smurf={props.smurf} key={Date.now()} /> */}
+      {/* I'm trying to figure out why the code below is throwing me an error. I'm not sure if its correct, but I do want to test it and not leave the the listContainer empty */}
+
+      {/* smurfs.map(smurf => <Smurf smurf={smurf} key={Date.now()}/>) */}
     </div>
   );
 };
